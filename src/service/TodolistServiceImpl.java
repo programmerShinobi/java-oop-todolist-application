@@ -16,11 +16,11 @@ public class TodolistServiceImpl implements TodolistService {
 		Todolist[] model = todolistRepository.getAll();
 		System.out.println("TODOLIST");
 		for (int i = 0; i < model.length; i++) {
-			String todo = String.valueOf(model[i]);
+			Todolist todolist = model[i];
 			int number = i + 1;
 
-			if (todo != null) {
-				System.out.println(number + ". " + todo);
+			if (todolist != null) {
+				System.out.println(number + ". " + todolist.getTodo());
 			}
 		}
 	}
