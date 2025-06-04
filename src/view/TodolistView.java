@@ -1,9 +1,37 @@
 package view;
 
+import service.TodolistService;
+import util.InputUtil;
+
 public class TodolistView {
 
-	public void showTodolist() {
+	private TodolistService todolistService;
 
+	public TodolistView(TodolistService todolistService) {
+		this.todolistService = todolistService;
+	}
+
+	public void showTodolist() {
+		while (true) {
+			todolistService.showTodolist();
+
+			System.out.println("MENU : ");
+			System.out.println("1. Tambah");
+			System.out.println("2. Hapus");
+			System.out.println("x. Keluar");
+
+			String input = InputUtil.input("Pilih");
+
+			if (input.equals("1")) {
+				addTodolist();
+			} else if (input.equals("2")) {
+				removeTodolist();
+			} else if (input.equals("x")) {
+				break;
+			} else {
+				System.out.println("Pilihan tidak dimengerti");
+			}
+		}
 	}
 
 	public void addTodolist() {
