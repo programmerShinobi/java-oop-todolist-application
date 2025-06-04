@@ -35,7 +35,15 @@ public class TodolistView {
 	}
 
 	public void addTodolist() {
+		System.out.println("MENAMBAH TODOLIST");
 
+		String todo = InputUtil.input("Todo (x Jika Batal)");
+
+		if (todo.equals("x")) {
+			// batal
+		} else {
+			todolistService.addTodolist(todo);
+		}
 	}
 
 	public void removeTodolist() {
