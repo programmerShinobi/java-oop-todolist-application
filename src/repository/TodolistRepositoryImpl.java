@@ -50,7 +50,22 @@ public class TodolistRepositoryImpl implements TodolistRepository {
 	}
 
 	@Override
-	public void remove(Integer number) {
+	public boolean remove(Integer number) {
+		Integer editNumberWithMinusOne= number - 1;
+		if ((editNumberWithMinusOne) >= data.length) {
+			return false;
+		} else if (data[editNumberWithMinusOne] == null) {
+			return false;
+		} else {
+			for (int i = editNumberWithMinusOne; i < data.length; i++) {
+				if (i == data.length - 1) {
+					data[i] = null;
+				} else {
+					data[i] = data[i + 1];
+				}
+			}
 
+			return true;
+		}
 	}
 }
